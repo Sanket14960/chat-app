@@ -10,15 +10,15 @@ import './app.css';
 
 const App = () => {
 
-    const [name, setName] = useState('name');
-    const [room, setRoom] = useState('room');
+  const [name, setName] = useState('name');
+  const [room, setRoom] = useState('room');
 
-    return (
-        <Router>
-            <Route path="/" exact render={props => <Join setName={setName} setRoom={setRoom} name={name} room={room} />} />
-            <Route path="/chat" render={props => <Chat name={name} room={room} />} />
-        </Router>
-    );
+  return (
+    <Router>
+      <Route path="/" exact render={props => <Join setName={setName} setRoom={setRoom} name={name} room={room} />} />
+      <Route path="/chat" render={props => <Chat name={name} room={room} />} />
+    </Router>
+  );
 }
 
 export default App;

@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import io from 'socket.io-client'
+import React, { useEffect } from 'react';
+import io from 'socket.io-client';
 
+let socket;
 
 const Chat = (props) => {
-    const { name } = props;
-    return (
-        <div className="container">
-            <h1>Logged in as {name}</h1>
-            <div className="message-box"></div>
-            <input type="text" placeholder="Enter your message" />
-            <button onClick={sendMessage}>Send</button>
-        </div>
-    );
+  const { name, room } = props;
+  const ENDPOINT = 'localhost:5000';
 
-    function sendMessage(event) {
-        console.log(`Sending a message now!`)   
-    }
-}
+  
+  useEffect(() => {
+    socket = io(ENDPOINT);
+    socket.emit('name', name);
+    console.log(`${socket.id} established a new name as ${name}`);
+  });
+
+  return (
+    <h1> {name} </h1>
+  );
+};
 
 export default Chat;
