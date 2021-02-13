@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import './Join.css';
+
 
 const Join = (props) => {
   const { setName, setRoom, name, room } = props;
